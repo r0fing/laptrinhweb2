@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tổng quan - Hệ thống Quản lý Kho hàng</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Thanh điều hướng -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Quản lý Kho hàng</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" data-toggle="modal" data-target="#notificationModal"><i class="fa fa-bell"></i> Thông báo <span class="badge">3</span></a></li>
+          <li><a href="#"><i class="fa fa-user"></i> Hồ sơ</a></li>
+          <li><a href="#"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
+        </ul>
+        <form class="navbar-form navbar-right">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Tìm kiếm...">
+          </div>
+          <button type="submit" class="btn btn-default">Tìm</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li class="active"><a href="index.html"><i class="fa fa-dashboard"></i> Tổng quan</a></li>
+          <li><a href="products.html"><i class="fa fa-cubes"></i> Mặt hàng</a></li>
+          <li><a href="inventory.html"><i class="fa fa-archive"></i> Kho hàng</a></li>
+          <li><a href="suppliers.html"><i class="fa fa-truck"></i> Nhà cung cấp</a></li>
+          <li><a href="orders.html"><i class="fa fa-shopping-cart"></i> Đơn hàng</a></li>
+          <li><a href="reports.html"><i class="fa fa-bar-chart"></i> Báo cáo</a></li>
+          <li><a href="settings.html"><i class="fa fa-cog"></i> Cài đặt</a></li>
+        </ul>
+      </div>
+
+      <!-- Nội dung chính -->
+      <div class="col-sm-9 col-md-10 main-content">
+        <h1 class="page-header">Tổng quan <small>Xin chào, Admin!</small></h1>
+        
+        <!-- Thống kê nhanh -->
+        <div class="row">
+          <div class="col-md-3">
+            <div class="stats-box bg-primary">
+              <i class="fa fa-cubes"></i>
+              <h2>150</h2>
+              <p>Tổng số mặt hàng</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stats-box bg-success">
+              <i class="fa fa-archive"></i>
+              <h2>5</h2>
+              <p>Kho hàng</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stats-box bg-info">
+              <i class="fa fa-truck"></i>
+              <h2>25</h2>
+              <p>Nhà cung cấp</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stats-box bg-warning">
+              <i class="fa fa-shopping-cart"></i>
+              <h2>42</h2>
+              <p>Đơn hàng mới</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Truy cập nhanh -->
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="sub-header">Truy cập nhanh</h3>
+          </div>
+          <div class="col-md-3">
+            <div class="quick-action">
+              <i class="fa fa-plus-circle"></i>
+              <h4>Thêm mặt hàng</h4>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="quick-action">
+              <i class="fa fa-exchange"></i>
+              <h4>Nhập/Xuất kho</h4>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="quick-action">
+              <i class="fa fa-file-text-o"></i>
+              <h4>Tạo báo cáo</h4>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="quick-action">
+              <i class="fa fa-users"></i>
+              <h4>Quản lý người dùng</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- Mặt hàng sắp hết -->
+          <div class="col-md-6">
+            <div class="dashboard-widget">
+              <h3><i class="fa fa-exclamation-triangle"></i> Mặt hàng sắp hết</h3>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Mã</th>
+                    <th>Tên mặt hàng</th>
+                    <th>Kho</th>
+                    <th>Số lượng</th>
+                    <th>Trạng thái</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>SP001</td>
+                    <td>Laptop Dell XPS 13</td>
+                    <td>Kho Hà Nội</td>
+                    <td>2</td>
+                    <td><span class="status-text status-danger">Cần nhập ngay</span></td>
+                  </tr>
+                  <tr>
+                    <td>SP015</td>
+                    <td>Điện thoại iPhone 13</td>
+                    <td>Kho HCM</td>
+                    <td>5</td>
+                    <td><span class="status-text status-warning">Sắp hết</span></td>
+                  </tr>
+                  <tr>
+                    <td>SP042</td>
+                    <td>Tai nghe Bluetooth</td>
+                    <td>Kho Đà Nẵng</td>
+                    <td>8</td>
+                    <td><span class="status-text status-warning">Sắp hết</span></td>
+                  </tr>
+                  <tr>
+                    <td>SP078</td>
+                    <td>Bàn phím cơ</td>
+                    <td>Kho HCM</td>
+                    <td>12</td>
+                    <td><span class="status-text status-info">Bình thường</span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="text-right">
+                <a href="#" class="btn btn-sm btn-primary">Xem tất cả</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hoạt động gần đây -->
+          <div class="col-md-6">
+            <div class="dashboard-widget">
+              <h3><i class="fa fa-clock-o"></i> Hoạt động gần đây</h3>
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <span class="badge">Vừa xong</span>
+                  <i class="fa fa-plus text-success"></i> Nhập kho 50 Laptop Dell XPS 15
+                </li>
+                <li class="list-group-item">
+                  <span class="badge">2 giờ trước</span>
+                  <i class="fa fa-minus text-danger"></i> Xuất kho 10 iPhone 13 Pro
+                </li>
+                <li class="list-group-item">
+                  <span class="badge">Hôm qua</span>
+                  <i class="fa fa-user text-info"></i> Thêm nhà cung cấp mới: Công ty ABC
+                </li>
+                <li class="list-group-item">
+                  <span class="badge">2 ngày trước</span>
+                  <i class="fa fa-edit text-warning"></i> Cập nhật thông tin kho Đà Nẵng
+                </li>
+                <li class="list-group-item">
+                  <span class="badge">3 ngày trước</span>
+                  <i class="fa fa-trash text-danger"></i> Xóa mặt hàng: Chuột không dây
+                </li>
+                <li class="list-group-item">
+                  <span class="badge">4 ngày trước</span>
+                  <i class="fa fa-check text-success"></i> Kiểm kê kho Hà Nội hoàn tất
+                </li>
+              </ul>
+              <div class="text-right">
+                <a href="#" class="btn btn-sm btn-primary">Xem tất cả</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- Biểu đồ phân bố hàng hóa -->
+          <div class="col-md-6">
+            <div class="dashboard-widget">
+              <h3><i class="fa fa-pie-chart"></i> Phân bố hàng hóa theo danh mục</h3>
+              <div class="chart-container">
+                <canvas id="categoryChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Biểu đồ doanh thu -->
+          <div class="col-md-6">
+            <div class="dashboard-widget">
+              <h3><i class="fa fa-line-chart"></i> Doanh thu theo tháng</h3>
+              <div class="chart-container">
+                <canvas id="revenueChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thông tin kho hàng -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="dashboard-widget">
+              <h3><i class="fa fa-building"></i> Tình trạng kho hàng</h3>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Kho</th>
+                    <th>Địa chỉ</th>
+                    <th>Tổng mặt hàng</th>
+                    <th>Sức chứa</th>
+                    <th>Tình trạng</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Kho Hà Nội</td>
+                    <td>Số 15, Đường Trần Duy Hưng, Cầu Giấy, Hà Nội</td>
+                    <td>450 mặt hàng</td>
+                    <td>75%</td>
+                    <td><span class="status-text status-info">Bình thường</span></td>
+                  </tr>
+                  <tr>
+                    <td>Kho Hồ Chí Minh</td>
+                    <td>Số 123, Đường Nguyễn Văn Linh, Quận 7, TP. HCM</td>
+                    <td>620 mặt hàng</td>
+                    <td>85%</td>
+                    <td><span class="status-text status-warning">Gần đầy</span></td>
+                  </tr>
+                  <tr>
+                    <td>Kho Đà Nẵng</td>
+                    <td>Số 45, Đường Ngô Quyền, Quận Sơn Trà, Đà Nẵng</td>
+                    <td>280 mặt hàng</td>
+                    <td>60%</td>
+                    <td><span class="status-text status-normal">Tốt</span></td>
+                  </tr>
+                  <tr>
+                    <td>Kho Cần Thơ</td>
+                    <td>Số 78, Đường 30/4, Quận Ninh Kiều, Cần Thơ</td>
+                    <td>180 mặt hàng</td>
+                    <td>40%</td>
+                    <td><span class="status-text status-normal">Tốt</span></td>
+                  </tr>
+                  <tr>
+                    <td>Kho Hải Phòng</td>
+                    <td>Số 25, Đường Lê Hồng Phong, Quận Ngô Quyền, Hải Phòng</td>
+                    <td>150 mặt hàng</td>
+                    <td>95%</td>
+                    <td><span class="status-text status-danger">Quá tải</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Thông báo -->
+  <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title"><i class="fa fa-bell"></i> Thông báo mới</h4>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="media">
+                <div class="media-left">
+                  <i class="fa fa-exclamation-triangle text-warning fa-2x"></i>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">Cảnh báo hàng sắp hết</h4>
+                  <p>Sản phẩm "iPhone 13 Pro Max" sắp hết hàng (còn 5 sản phẩm)</p>
+                  <small class="text-muted">2 giờ trước</small>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="media">
+                <div class="media-left">
+                  <i class="fa fa-truck text-info fa-2x"></i>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">Đơn hàng mới</h4>
+                  <p>Đơn hàng #ORD12345 vừa được tạo và đang chờ xử lý</p>
+                  <small class="text-muted">4 giờ trước</small>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="media">
+                <div class="media-left">
+                  <i class="fa fa-check-circle text-success fa-2x"></i>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">Nhập kho thành công</h4>
+                  <p>Đã nhập kho thành công 50 sản phẩm "Laptop Dell XPS 15"</p>
+                  <small class="text-muted">Hôm qua</small>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+          <button type="button" class="btn btn-primary">Xem tất cả thông báo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
